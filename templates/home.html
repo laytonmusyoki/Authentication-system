@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask application</title>
+    <style>
+        .container{
+            background: rgb(145, 141, 150)  ;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .sub-container{
+            max-width: 1100px;
+            margin: auto;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .bar{
+            text-align: right;
+            margin-top: -20px;
+        }
+        .bar ul{
+            list-style-type: none;
+            display: inline-block;
+           
+        }
+        .bar ul li{
+            display: inline-block;
+            padding-left: 35px;
+            margin-top: 0;
+        }
+        .logo h4{
+            font-size: 35px;
+            color: gold;
+            margin-top: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        span{
+            color: rgba(255, 0, 0, 0.527);
+        }
+        button{
+            font-size: 17px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            margin-top: 0;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 90px;
+        }
+        .col-2{
+            flex-basis: 50%;
+        }
+        h1{
+            font-size: 35px;
+        }
+        .col-2 img{
+            width: 100%;
+        }
+        p{
+            color: #efefefc2;
+            line-height: 22px;
+        }
+        h5{
+            background-color: tomato;
+            width: 120px;
+            cursor:pointer;
+            height: 30px;
+            margin-top: 90px;
+            border-radius: 30px;
+            color: white;
+            padding: 10px 15px;
+            font-size: 20px;
+            transition:background 1.5s;
+        }
+        h5:hover{
+         background: #563434;
+          }
+        @media only screen and(max-width:800px){
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+      <div class="sub-container">
+        <div class="navbar">
+            <div class="logo">
+              <h4>PRIME<span>hotel</span></h4>
+              
+            </div>
+            <div class="bar">
+                <ul>
+                    <li><a href="{{ url_for('login') }}"><button>LOGIN</button></a></li>
+                    <li><a href="{{ url_for('register') }}"><button>SIGN UP</button></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <h1>Give Your Work A New Style!!</h1>
+                <p>We offer quality food to our customers at an affordable price <br> come and enjoy our delicious meals <br> For more details sign up and login to our website</p>
+               <h5>Login Now!</h5>
+            </div>
+            <div class="col-2">
+                <img src="{{url_for('static', filename='images/food.jpg')}}"width="400" height="auto">
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

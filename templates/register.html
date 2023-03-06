@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+
+  <style>
+    .container{
+        width: 300px;
+        height: auto;
+        border: 1px solid black;
+        top: 9%;
+        left: 50%;
+        box-shadow:0 10px 20px 3px black;
+        position: absolute;
+        transform: translate(-50%,50%);
+    }
+    .sub-section{
+            max-width: 1100px;
+            margin: auto;
+        }
+    h1{
+        text-align: center;
+        font-size: 30px;
+        color: blue;
+    }
+    h1::after{
+        content: "";
+        width: 70px;
+        height: 5px;
+        border-radius: 3px;
+        background: tomato;
+        position: absolute;
+        margin-top: 37px;
+        transform: translateX(-120%);
+    }
+    form input{
+        width: 89%;
+        height: 30px;
+        left: 2%;
+        padding:0 10px;
+        box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+        background: #eee;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        position: relative;
+        
+    }
+    
+    
+    .btn{
+        width: 30%;
+        height: 30px;
+        left: 67%;
+        position: relative;
+        background-color: tomato;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background 1.5s;
+    }
+    .btn:hover{
+        background: green;
+    }
+    .error{
+            background: #F2DEDE;
+            color: #A94442;
+            padding: 10px;
+            width: 90%;
+            height: 20px;
+            border-radius: 5px;
+            margin: 20px auto;
+         }
+         .ca{
+            font-size: 14px;
+            display: inline-block;
+            padding: 10px;
+            margin-left: -90px;
+            text-decoration: none;
+            color: #444;
+         }
+         .ca:hover{
+            text-decoration: underline;
+         }
+         .section{
+            padding:  0;
+            background: rgb(145, 141, 150)  ;
+            height: 100vh;
+         }
+         @media only screen and(max-width:800px){
+        .container{
+       width: 230px;
+   }
+   input{
+        width: 75%;
+    }
+    .ca{
+            padding: 10px 25px;
+           
+         }
+    }
+    
+  h5{
+            background: #F2DEDE;
+            color: #A94442;
+            padding: 10px;
+            width: 90%;
+            height: 20px;
+            border-radius: 5px;
+            margin: 20px auto;
+         }
+
+         .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .bar{
+            text-align: right;
+            margin-top: -20px;
+        }
+        .bar ul{
+            list-style-type: none;
+            display: inline-block;
+           
+        }
+        .bar ul li{
+            display: inline-block;
+            padding-left: 35px;
+            margin-top: 0;
+        }
+        .logo h4{
+            font-size: 35px;
+            color: gold;
+            margin-top: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        span{
+            color: rgba(255, 0, 0, 0.527);
+        }
+  </style>
+</head>
+<body>
+    
+    <div class="section">
+        <div class="sub-section">
+        <div class="navbar">
+            <div class="logo">
+              <h4>PRIME<span>HOTEL</span></h4>
+              
+            </div>
+            <div class="bar">
+                <ul>
+                    <li><a href="{{ url_for('login') }}"><button>LOGIN</button></a></li>
+                    <li><a href="{{ url_for('register') }}"><button>SIGN UP</button></a></li>
+                </ul>
+            </div>
+        </div>
+    <div class="container">
+        <div class="form">
+            <h1>Sign Up</h1>
+            
+            <div class="input">
+    <form action="{{ url_for('register') }}" method="POST">
+       <h6>{{message}}</h6>
+
+    {% with messages=get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+    <h5>{{msg}}</h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+<input type="text" placeholder="name" value="{{ name }}"  name="name" required><br><br>
+<input type="text" placeholder="username" value="{{ username }}"  name="username" required><br><br>
+<input type="email" placeholder="email" value="{{ email }}" name="email"  required><br><br>
+<input type="password" placeholder="Password" value="{{ password }}" name="password"required ><br><br>
+<button type="submit"name="btn" class="btn" >Sign Up</button>
+<a href="{{url_for('login')}}" class="ca">Already have an account?</a>
+
+    </form>
+</div>
+    </div>
+</div>
+</div>
+</div>
+
+
+    
+    
+</body>
+</html>
